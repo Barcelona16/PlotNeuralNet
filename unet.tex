@@ -24,8 +24,8 @@
     {RightBandedBox={
         name=ccr_b1,
         caption= ,
-        xlabel={{ 64, 64 }},
         zlabel=500,
+        zlabel= ,
         fill=\ConvColor,
         bandfill=\ConvReluColor,
         height=40,
@@ -46,12 +46,12 @@
         }
     };
 
-\pic[shift={ (1,0,0) }] at (pool_b1-east) 
+\pic[shift={ (5,-10,0) }] at (pool_b1-east) 
     {RightBandedBox={
         name=ccr_b2,
         caption= ,
-        xlabel={{ 128, 128 }},
-        zlabel=256,
+        zlabel=128,
+        zlabel= ,
         fill=\ConvColor,
         bandfill=\ConvReluColor,
         height=32,
@@ -74,12 +74,12 @@
 
 \draw [connection]  (pool_b1-east)    -- node {\midarrow} (ccr_b2-west);
 
-\pic[shift={ (1,0,0) }] at (pool_b2-east) 
+\pic[shift={ (5,-10,0) }] at (pool_b2-east) 
     {RightBandedBox={
         name=ccr_b3,
         caption= ,
-        xlabel={{ 256, 256 }},
         zlabel=128,
+        zlabel= ,
         fill=\ConvColor,
         bandfill=\ConvReluColor,
         height=25,
@@ -102,12 +102,12 @@
 
 \draw [connection]  (pool_b2-east)    -- node {\midarrow} (ccr_b3-west);
 
-\pic[shift={ (1,0,0) }] at (pool_b3-east) 
+\pic[shift={ (5,-10,0) }] at (pool_b3-east) 
     {RightBandedBox={
         name=ccr_b4,
         caption= ,
-        xlabel={{ 512, 512 }},
         zlabel=64,
+        zlabel= ,
         fill=\ConvColor,
         bandfill=\ConvReluColor,
         height=16,
@@ -130,12 +130,432 @@
 
 \draw [connection]  (pool_b3-east)    -- node {\midarrow} (ccr_b4-west);
 
-\pic[shift={ (2,0,0) }] at (pool_b4-east) 
+\pic[shift={ (5.1,10,0) }] at (pool_b2-east) 
+    {Box={
+        name=unpool_bb1,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=40,
+        width=1,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_bb1-east) 
+    {RightBandedBox={
+        name=ccr_res_bb1,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_bb1-east) 
+    {Box={
+        name=ccr_bb1,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_bb1-east) 
+    {RightBandedBox={
+        name=ccr_res_c_bb1,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_bb1-east) 
+    {Box={
+        name=,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\draw [connection]  (pool_b2-east)    -- node {\midarrow} (unpool_bb1-west);
+
+\pic[shift={ (5.1,10,0) }] at (pool_b3-east) 
+    {Box={
+        name=unpool_bb2,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=32,
+        width=1,
+        depth=32
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_bb2-east) 
+    {RightBandedBox={
+        name=ccr_res_bb2,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_bb2-east) 
+    {Box={
+        name=ccr_bb2,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_bb2-east) 
+    {RightBandedBox={
+        name=ccr_res_c_bb2,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_bb2-east) 
+    {Box={
+        name=,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\draw [connection]  (pool_b3-east)    -- node {\midarrow} (unpool_bb2-west);
+
+\pic[shift={ (5.1,10,0) }] at (pool_b4-east) 
+    {Box={
+        name=unpool_bb3,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=25,
+        width=1,
+        depth=25
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_bb3-east) 
+    {RightBandedBox={
+        name=ccr_res_bb3,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_bb3-east) 
+    {Box={
+        name=ccr_bb3,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_bb3-east) 
+    {RightBandedBox={
+        name=ccr_res_c_bb3,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_bb3-east) 
+    {Box={
+        name=,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\draw [connection]  (pool_b4-east)    -- node {\midarrow} (unpool_bb3-west);
+
+\pic[shift={ (5.1,10,0) }] at (ccr_res_bb2-east) 
+    {Box={
+        name=unpool_bb4,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=40,
+        width=1,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_bb4-east) 
+    {RightBandedBox={
+        name=ccr_res_bb4,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_bb4-east) 
+    {Box={
+        name=ccr_bb4,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_bb4-east) 
+    {RightBandedBox={
+        name=ccr_res_c_bb4,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_bb4-east) 
+    {Box={
+        name=,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\draw [connection]  (ccr_res_bb2-east)    -- node {\midarrow} (unpool_bb4-west);
+
+\pic[shift={ (5.1,10,0) }] at (ccr_res_bb3-east) 
+    {Box={
+        name=unpool_bb5,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=32,
+        width=1,
+        depth=32
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_bb5-east) 
+    {RightBandedBox={
+        name=ccr_res_bb5,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_bb5-east) 
+    {Box={
+        name=ccr_bb5,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_bb5-east) 
+    {RightBandedBox={
+        name=ccr_res_c_bb5,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_bb5-east) 
+    {Box={
+        name=,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\draw [connection]  (ccr_res_bb3-east)    -- node {\midarrow} (unpool_bb5-west);
+
+\pic[shift={ (5.1,10,0) }] at (ccr_res_bb5-east) 
+    {Box={
+        name=unpool_bb6,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=40,
+        width=1,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_bb6-east) 
+    {RightBandedBox={
+        name=ccr_res_bb6,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=4.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_bb6-east) 
+    {Box={
+        name=ccr_bb6,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=4.5,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_bb6-east) 
+    {RightBandedBox={
+        name=ccr_res_c_bb6,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=4.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_bb6-east) 
+    {Box={
+        name=,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=4.5,
+        depth=40
+        }
+    };
+
+\draw [connection]  (ccr_res_bb5-east)    -- node {\midarrow} (unpool_bb6-west);
+
+\pic[shift={ (5,-10,0) }] at (pool_b4-east) 
     {RightBandedBox={
         name=ccr_b5,
         caption=Bottleneck,
-        xlabel={{ 1024, 1024 }},
         zlabel=32,
+        zlabel= ,
         fill=\ConvColor,
         bandfill=\ConvReluColor,
         height=8,
@@ -145,6 +565,308 @@
     };
 
 \draw [connection]  (pool_b4-east)    -- node {\midarrow} (ccr_b5-west);
+
+\pic[shift={ (5.1,10,0) }] at (ccr_b5-east) 
+    {Box={
+        name=unpool_b6,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=16,
+        width=1,
+        depth=16
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_b6-east) 
+    {RightBandedBox={
+        name=ccr_res_b6,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=16,
+        width=5.0,
+        depth=16
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_b6-east) 
+    {Box={
+        name=ccr_b6,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=16,
+        width=5.0,
+        depth=16
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_b6-east) 
+    {RightBandedBox={
+        name=ccr_res_c_b6,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=16,
+        width=5.0,
+        depth=16
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_b6-east) 
+    {Box={
+        name=end_b6,
+        caption= ,
+        zlabel=64,
+        zlabel= ,
+        fill=\ConvColor,
+        height=16,
+        width=5.0,
+        depth=16
+        }
+    };
+
+\draw [connection]  (ccr_b5-east)    -- node {\midarrow} (unpool_b6-west);
+
+\path (ccr_b4-southeast) -- (ccr_b4-northeast) coordinate[pos=1.25] (ccr_b4-top) ;
+\path (ccr_res_b6-south)  -- (ccr_res_b6-north)  coordinate[pos=1.25] (ccr_res_b6-top) ;
+\draw [copyconnection]  (ccr_b4-northeast)  
+-- node {\copymidarrow}(ccr_b4-top)
+-- node {\copymidarrow}(ccr_res_b6-top)
+-- node {\copymidarrow} (ccr_res_b6-north);
+
+\pic[shift={ (5.1,10,0) }] at (end_b6-east) 
+    {Box={
+        name=unpool_b7,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=25,
+        width=1,
+        depth=25
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_b7-east) 
+    {RightBandedBox={
+        name=ccr_res_b7,
+        caption= ,
+        zlabel=128,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_b7-east) 
+    {Box={
+        name=ccr_b7,
+        caption= ,
+        zlabel=128,
+        zlabel= ,
+        fill=\ConvColor,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_b7-east) 
+    {RightBandedBox={
+        name=ccr_res_c_b7,
+        caption= ,
+        zlabel=128,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_b7-east) 
+    {Box={
+        name=end_b7,
+        caption= ,
+        zlabel=128,
+        zlabel= ,
+        fill=\ConvColor,
+        height=25,
+        width=4.5,
+        depth=25
+        }
+    };
+
+\draw [connection]  (end_b6-east)    -- node {\midarrow} (unpool_b7-west);
+
+\pic[shift={ (5.1,10,0) }] at (end_b7-east) 
+    {Box={
+        name=unpool_b8,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=32,
+        width=1,
+        depth=32
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_b8-east) 
+    {RightBandedBox={
+        name=ccr_res_b8,
+        caption= ,
+        zlabel=256,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_b8-east) 
+    {Box={
+        name=ccr_b8,
+        caption= ,
+        zlabel=256,
+        zlabel= ,
+        fill=\ConvColor,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_b8-east) 
+    {RightBandedBox={
+        name=ccr_res_c_b8,
+        caption= ,
+        zlabel=256,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_b8-east) 
+    {Box={
+        name=end_b8,
+        caption= ,
+        zlabel=256,
+        zlabel= ,
+        fill=\ConvColor,
+        height=32,
+        width=3.5,
+        depth=32
+        }
+    };
+
+\draw [connection]  (end_b7-east)    -- node {\midarrow} (unpool_b8-west);
+
+\pic[shift={ (5.1,10,0) }] at (end_b8-east) 
+    {Box={
+        name=unpool_b9,
+        caption= ,
+        fill=\UnpoolColor,
+        opacity=0.5,
+        height=40,
+        width=1,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (unpool_b9-east) 
+    {RightBandedBox={
+        name=ccr_res_b9,
+        caption= ,
+        zlabel=512,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_b9-east) 
+    {Box={
+        name=ccr_b9,
+        caption= ,
+        zlabel=512,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={ (0,0,0) }] at (ccr_b9-east) 
+    {RightBandedBox={
+        name=ccr_res_c_b9,
+        caption= ,
+        zlabel=512,
+        zlabel= ,
+        fill={rgb:white,1;black,3},
+        bandfill={rgb:white,1;black,2},
+        opacity=0.5,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\pic[shift={(0,0,0)}] at (ccr_res_c_b9-east) 
+    {Box={
+        name=end_b9,
+        caption= ,
+        zlabel=512,
+        zlabel= ,
+        fill=\ConvColor,
+        height=40,
+        width=2.5,
+        depth=40
+        }
+    };
+
+\draw [connection]  (end_b8-east)    -- node {\midarrow} (unpool_b9-west);
+
+\pic[shift={(0.75,0,0)}] at (end_b9-east) 
+    {Box={
+        name=soft1,
+        caption=SOFT,
+        zlabel=512,
+        zlabel= ,
+        fill=\SoftmaxColor,
+        height=40,
+        width=1,
+        depth=40
+        }
+    };
+
+\draw [connection]  (end_b9-east)    -- node {\midarrow} (soft1-west);
 
 \end{tikzpicture}
 \end{document}
