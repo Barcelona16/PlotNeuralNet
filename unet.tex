@@ -20,6 +20,10 @@
 \tikzstyle{connection}=[ultra thick,every node/.style={sloped,allow upside down},draw=\edgecolor,opacity=0.7]
 \tikzstyle{copyconnection}=[ultra thick,every node/.style={sloped,allow upside down},draw={rgb:blue,4;red,1;green,1;black,3},opacity=0.7]
 
+\node[canvas is zy plane at x=0] (temp) at (-3,0,0) {\includegraphics[width=8cm,height=8cm]{brain.jpg}};
+
+\node[canvas is zy plane at x=0] (temp) at (68,0,0) {\includegraphics[width=8cm,height=8cm]{gd.jpg}};
+
 \pic[shift={ (0,0,0) }] at (0,0,0) 
     {RightBandedBox={
         name=ccr_b1,
@@ -635,13 +639,6 @@
     };
 
 \draw [connection]  (ccr_b5-east)    -- node {\midarrow} (unpool_b6-west);
-
-\path (ccr_b4-southeast) -- (ccr_b4-northeast) coordinate[pos=1.25] (ccr_b4-top) ;
-\path (ccr_res_b6-south)  -- (ccr_res_b6-north)  coordinate[pos=1.25] (ccr_res_b6-top) ;
-\draw [copyconnection]  (ccr_b4-northeast)  
--- node {\copymidarrow}(ccr_b4-top)
--- node {\copymidarrow}(ccr_res_b6-top)
--- node {\copymidarrow} (ccr_res_b6-north);
 
 \pic[shift={ (5.1,10,0) }] at (end_b6-east) 
     {Box={
